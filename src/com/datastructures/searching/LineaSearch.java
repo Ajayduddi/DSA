@@ -28,7 +28,9 @@ public class LineaSearch {
         else System.out.println("Element Not Found");
 
         if(ans2) System.out.println("character Found");
-        else System.out.println("Character not Found");
+        else
+            System.out.println("Character not Found");
+        in.close();
     }
 
     // search in the array: return the index if item found
