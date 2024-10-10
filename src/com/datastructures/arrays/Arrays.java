@@ -60,9 +60,10 @@ public class Arrays {
 
         System.out.println("\nEnter some names: ");
         // read input from the user
-        for (int i = 0; i<names.length; i++){
+        for (int i = 0; i < names.length; i++) {
             names[i] = in.nextLine();
         }
+        
 
         // print names
         System.out.println(java.util.Arrays.toString(names));

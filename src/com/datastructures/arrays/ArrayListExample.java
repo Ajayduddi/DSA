@@ -56,6 +56,7 @@ public class ArrayListExample {
 
         // Remove all the elements from the ArrayList
         list.clear();
-        System.out.println("\nAfter clearing the list: "+ list);
+        System.out.println("\nAfter clearing the list: " + list);
+        
     }
 }

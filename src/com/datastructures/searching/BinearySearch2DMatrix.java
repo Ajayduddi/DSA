@@ -32,6 +32,8 @@ public class BinearySearch2DMatrix {
      * if it is greater than the target element then col--;
      * if it is less than the target element then row++;
      * repeat till row <= last row & col >= 0;
+     * 
+     * O(m+n)
      */
     static int[] partiallySortedMatrix(int[][] matrix, int target) {
         int row = 0;
@@ -60,6 +62,8 @@ public class BinearySearch2DMatrix {
      * if last element < target then rowStart = mid+1;
      * if first element > target then rowEnd = mid-1;
      * repete until rowStart <= rowEnd;
+     * 
+     * O(log(n) + log(m))
      */
     static int[] fullySortedMatrix(int[][] matrix, int target) {
         int rowStart = 0, rowEnd = matrix.length - 1;
