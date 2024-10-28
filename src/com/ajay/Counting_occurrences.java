@@ -8,6 +8,10 @@ public class Counting_occurrences {
 
         int count = 0;
 
+        // to find the no of digits present in the numbers || length of the number
+        int digit = (int) (Math.log10(n))+1;
+        System.out.println(digit);
+
         while(n>0){
 
             int rem = n%10; // get last digit from the number

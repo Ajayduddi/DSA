@@ -14,6 +14,7 @@ public class Fibonacci {
 
         System.out.print(a+","+b);
 
+        // time complexity : O(n)
         while(count <= n){
             int temp = b;
             b = a + b ;

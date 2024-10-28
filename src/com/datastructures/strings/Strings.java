@@ -60,7 +60,6 @@ public class Strings {
         System.out.println("   Trimmed string    ".strip()); // `strip()` method returns a string that is the same as this string but with all leading and trailing whitespace removed
         System.out.println(s1.concat(s2)); // `concat()` method returns a string that is the concatenation of this string and the specified string
         System.out.println(s1.contains("a")); // `contains()` method returns true if and only if this string contains the specified sequence of char values
-
         // printf
         System.out.printf("%s %s", s1, s2);
 
