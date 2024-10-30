@@ -63,6 +63,7 @@ public class MultiDimensionalArray {
             System.out.println(Arrays.toString(a));
         }
 
-//        System.out.println("\nmemory address of newarr"+ newarr);
+        //        System.out.println("\nmemory address of newarr"+ newarr);
+        in.close();
     }
 }

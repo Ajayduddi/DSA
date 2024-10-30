@@ -12,7 +12,7 @@ public class Calculator {
             System.out.println("Type X or x for exit ");
             System.out.println("Enter an Operator: ");
             int op = in.next().trim().charAt(0);
-
+            
 //            if(op == '+' || op == '-' || op == '*' || op == '/' || op == '%' || op == 'x' || op == 'X'){
 //                System.out.println("num 1 : ");
 //                System.out.println("num 2 : ");
@@ -54,6 +54,6 @@ public class Calculator {
 
             }
         }
-
+        in.close();
     }
 }

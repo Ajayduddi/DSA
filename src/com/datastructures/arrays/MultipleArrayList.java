@@ -26,5 +26,6 @@ public class MultipleArrayList {
         }
 
         System.out.println(list);
+        in.close();
     }
 }

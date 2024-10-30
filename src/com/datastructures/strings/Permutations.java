@@ -6,6 +6,7 @@ public class Permutations {
         permut("", "abc");
     }
     
+    // using recursion only without backtracking
     static void permut(String p, String up) {
         if (up.isEmpty()) {
             System.out.println(p);

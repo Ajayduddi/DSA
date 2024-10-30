@@ -67,6 +67,6 @@ public class Arrays {
 
         // print names
         System.out.println(java.util.Arrays.toString(names));
-
+        in.close();
     }
 }

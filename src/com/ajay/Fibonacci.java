@@ -23,6 +23,7 @@ public class Fibonacci {
             count++;
         }
 
-        System.out.println("\nThe fibonacci series of " + n +" : " + b);
+        System.out.println("\nThe fibonacci series of " + n + " : " + b);
+        in.close();
     }
 }
