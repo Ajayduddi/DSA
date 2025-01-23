@@ -68,7 +68,7 @@ public class MergeSort_LinkedList {
 	}
 
 	/*
-	 * find mid node usinf fast and slow pointer
+	 * find mid node using fast and slow pointer
 	 */
 	public static Node findMid(Node head, Node tail) {
 		

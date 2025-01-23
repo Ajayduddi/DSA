@@ -28,7 +28,7 @@ public class LL {
 	}
 
 	// get next node
-	public Node next(Node node) {
+	public final Node next(Node node) {
 		return node.next;
 	}
 
@@ -171,7 +171,7 @@ public class LL {
 			System.out.println("Invalid index");
 			return;
 		}
-		
+
 		// if we remove the first node
 		if (index == 0) {
 			removeFirst();
@@ -194,6 +194,11 @@ public class LL {
 
 		// updating the size
 		size -= 1;
+	}
+
+	// Insert the element into the linkedlist using recursion
+	public final void insertUsingRecursion(int index, int val) {
+		head = helper(index, val, head);
 	}
 
 	// get node by index
@@ -227,6 +232,19 @@ public class LL {
 		}
 
 		return node;
+	}
+
+	// helper function to insert the element using recursion
+	public final Node helper(int index, int val, Node prevNode) {
+		// base condition
+		if (index == 0) {
+			Node node = new Node(val, prevNode);
+			size += 1;
+			return node;
+		}
+
+		prevNode.next = helper(index - 1, val, prevNode.next);
+		return prevNode;
 	}
 
 	// this is the class Node represents a node in the linked list

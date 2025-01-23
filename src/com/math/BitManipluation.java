@@ -92,8 +92,20 @@ public class BitManipluation {
          * 00001010 >> 2 = 000010
          * 
          * general point = a >> b = a / 2^b
+         * which fills the leftmost bits with the sign bit (i.e., 0 for positive numbers and 1 for negative numbers).
          */
         System.out.println("a >> b = " + (a >> b));
+        
+        // Bitwise Unsigned Right Shift (>>)
+        a = -10; // 00001010 ( ~ 10) == > 11111111 11111111 11111111 11110110 ( ~ -10) Two's complement
+        b = 2; //  0010
+        /*
+         * 11111111 11111111 11111111 11110110 >>> 2 = 00111111 11111111 11111111 11111101
+         * 
+         * general point = a >> b = a / 2^b
+         * It shifts the bits of a number to the right and fills the leftmost bits with 0, regardless of the sign of the number
+         */
+        System.out.println("a >>> b = " + (a >>> b));
     }
 
     public static void numberSystem() {

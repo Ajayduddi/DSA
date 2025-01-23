@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Ceiling The Number is a searching algorithm that finds the smallest integer in the array greater than or equal to the target number
- * It is solved usinf Binary Search
+ * It is solved using Binary Search
  * Time Complexity: O(log n)
  * Space Complexity: O(1)
  */

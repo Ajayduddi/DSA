@@ -13,7 +13,8 @@ public class Main {
 		list.relpace(0, 22);
 		list.add(6);
 		list.insertFirst(5);
-		list.insert(5, 18); // inset the element at the index 2
+		list.insert(5, 18); // inset the element at the index 5
+		list.insertUsingRecursion(6, 45); // insert the element at the index 6
 		list.display(); // display the Linkedlist
 		System.out.println("Size of the list : " + list.size()); // displat the size of the Linkedlist
 		
@@ -23,7 +24,7 @@ public class Main {
 		list.display();
 		list.remove(1); // remove the element at index 0
 		list.display();
-		list.remove(4); // here we get the error , because the index is out of bounds
+		list.remove(5); // here we get the error , because the index is out of bounds
 
 		System.out.println("First element : " + list.getFirst());
 		System.out.println("Last element : " + list.getLast());
