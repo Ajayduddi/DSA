@@ -1,0 +1,141 @@
+A queue is a linear data structure that follows the First In First Out (FIFO) principle. 
+In a queue, the element that is added first is the one to be removed first. 
+It is an ordered list where insertions are done at one end (rear) and deletions are done at the other end (front).
+
+Key characteristics of a queue:
+- Elements are added at the rear and removed from the front.
+- Follows FIFO (First In First Out) principle.
+- Can be implemented using arrays or linked lists.
+
+--------------------------------------------------------------------------------------------------
+
+We can implement queues using arrays or linked lists.
+
+Here, n = size of the queue.
+- Insertion: O(1)
+- Deletion: O(1)
+- Peek/Front: O(1)
+
+
+------------------------ Real-life applications of queues ------------------------
+
+1. CPU Scheduling: Used in operating systems to manage processes.
+2. Disk Scheduling: Used to manage disk access requests.
+3. Print Queue: Used to manage print jobs in printers.
+4. Call Center Systems: Used to manage incoming calls.
+5. Breadth-First Search: Used in graph traversal algorithms.
+6. Data Buffers: Used in data streaming applications.
+7. Network Routers: Used to manage data packets.
+8. Task Scheduling: Used in task management systems.
+
+
+-------------------------- Terminologies used in Queues --------------------------
+
+1. Enqueue: Adding an element to the rear of the queue.
+    Example: 
+    Queue: [1, 2, 3]
+    After Enqueue(4): [1, 2, 3, 4]
+
+2. Dequeue: Removing an element from the front of the queue.
+    Example: 
+    Queue: [1, 2, 3]
+    After Dequeue(): [2, 3]
+
+3. Front: The first element of the queue.
+    Example: 
+    Queue: [1, 2, 3]
+    Front: 1
+
+4. Rear: The last element of the queue.
+    Example: 
+    Queue: [1, 2, 3]
+    Rear: 3
+
+5. Underflow: A condition when trying to dequeue from an empty queue.
+    Example: 
+    Queue: []
+    Dequeue(): Underflow
+
+6. Overflow: A condition when trying to enqueue to a full queue (in case of fixed-size implementation).
+    Example: 
+    Queue: [1, 2, 3] (size 3)
+    Enqueue(4): Overflow
+
+
+-------------------------------------- Types of Queues --------------------------------------
+
+1. Simple Queue:
+    - Definition: A basic queue where insertion is done at the rear and deletion is done at the front.
+    - Example:
+        Enqueue: [1, 2, 3]
+        Dequeue: [2, 3]
+
+2. Circular Queue:
+    - Definition: A queue where the last position is connected back to the first position to make a circle.
+    - Example:
+        Enqueue: [1, 2, 3]
+        Dequeue: [2, 3]
+        Enqueue(4): [4, 2, 3]
+
+3. Priority Queue:
+    - Definition: A queue where each element is associated with a priority, and elements are dequeued based on their priority.
+    - Example:
+        Enqueue: [(1, 'A'), (2, 'B'), (1, 'C')]
+        Dequeue: [(1, 'A'), (1, 'C'), (2, 'B')]
+
+4. Deque (Double-Ended Queue):
+    - Definition: A queue where insertion and deletion can be done from both ends.
+    - Example:
+        Enqueue Front: [1, 2, 3]
+        Enqueue Rear: [1, 2, 3, 4]
+        Dequeue Front: [2, 3, 4]
+        Dequeue Rear: [2, 3]
+
+
+--------------------------------------- Operations of Queues ---------------------------------------
+
+1. Enqueue:
+  - Description: Adding a new element to the rear of the queue.
+  - Example: 
+    Before Enqueue(4):
+    Queue: [1, 2, 3]
+    After Enqueue(4):
+    Queue: [1, 2, 3, 4]
+  - Complexity: O(1)
+
+2. Dequeue:
+  - Description: Removing an element from the front of the queue.
+  - Example: 
+    Before Dequeue():
+    Queue: [1, 2, 3]
+    After Dequeue():
+    Queue: [2, 3]
+  - Complexity: O(1)
+
+3. Peek/Front:
+  - Description: Getting the front element of the queue without removing it.
+  - Example: 
+    Queue: [1, 2, 3]
+    Peek(): 1
+  - Complexity: O(1)
+
+4. IsEmpty:
+  - Description: Checking if the queue is empty.
+  - Example: 
+    Queue: []
+    IsEmpty(): True
+  - Complexity: O(1)
+
+5. IsFull:
+  - Description: Checking if the queue is full (in case of fixed-size implementation).
+  - Example: 
+    Queue: [1, 2, 3] (size 3)
+    IsFull(): True
+  - Complexity: O(1)
+
+6. Size:
+  - Description: Getting the number of elements in the queue.
+  - Example: 
+    Queue: [1, 2, 3]
+    Size(): 3
+  - Complexity: O(1)

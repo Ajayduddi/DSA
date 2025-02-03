@@ -1,0 +1,157 @@
+A stack is a linear data structure that follows the Last In First Out (LIFO) principle. 
+This means that the last element added to the stack will be the first one to be removed. 
+Stacks are used in various applications due to their simplicity and efficiency in managing data.
+
+Key characteristics of a stack:
+- Elements are added and removed from the same end, called the "top" of the stack.
+- The element added last is the first one to be removed (LIFO principle).
+- Supports basic operations such as push, pop, peek, and isEmpty.
+
+--------------------------------------------------------------------------------------------------
+
+We can implement stacks using arrays or linked lists.
+
+Here, n = size of the stack.
+- Push: O(1)
+- Pop: O(1)
+- Peek: O(1)
+- isEmpty: O(1)
+
+------------------------ Real-life applications of stacks ------------------------
+
+1. Expression Evaluation: Used in evaluating postfix, prefix, and infix expressions.
+2. Syntax Parsing: Used in compilers to check for balanced parentheses and syntax errors.
+3. Function Call Management: Used in managing function calls and recursion in programming languages.
+4. Undo Mechanism: Used in applications like text editors to implement undo functionality.
+5. Browser History: Used to manage the history of visited web pages.
+6. Backtracking Algorithms: Used in algorithms like maze solving, puzzle solving, etc.
+7. Memory Management: Used in managing memory allocation and deallocation in operating systems.
+8. Expression Conversion: Used in converting infix expressions to postfix or prefix forms.
+
+-------------------------- Terminologies used in Stacks --------------------------
+
+1. Push: The operation of adding an element to the top of the stack.
+    Example:
+        Stack: [1, 2, 3]
+        After push(4): [1, 2, 3, 4]
+
+2. Pop: The operation of removing the top element from the stack.
+    Example:
+        Stack: [1, 2, 3, 4]
+        After pop(): [1, 2, 3]
+
+3. Peek (or Top): The operation of viewing the top element of the stack without removing it.
+    Example:
+        Stack: [1, 2, 3, 4]
+        peek(): 4
+
+4. isEmpty: The operation of checking whether the stack is empty.
+    Example:
+        Stack: []
+        isEmpty(): true
+
+5. Overflow: A condition where an attempt is made to push an element onto a full stack.
+    Example:
+        Stack: [1, 2, 3, 4] (assuming max size is 4)
+        push(5): Overflow
+
+6. Underflow: A condition where an attempt is made to pop an element from an empty stack.
+    Example:
+        Stack: []
+        pop(): Underflow
+
+-------------------------------------- Types of Stacks --------------------------------------
+
+1. Array-based Stack:
+    - Definition: A stack implemented using an array.
+    - Characteristics: Fixed size, efficient access to elements.
+    - Example:
+        class ArrayStack {
+            private int[] stack;
+            private int top;
+            private int maxSize;
+
+            public ArrayStack(int size) {
+                stack = new int[size];
+                top = -1;
+                maxSize = size;
+            }
+
+            public void push(int value) {
+                if (top == maxSize - 1) {
+                    throw new StackOverflowError();
+                }
+                stack[++top] = value;
+            }
+
+            public int pop() {
+                if (top == -1) {
+                    throw new EmptyStackException();
+                }
+                return stack[top--];
+            }
+
+            public int peek() {
+                if (top == -1) {
+                    throw new EmptyStackException();
+                }
+                return stack[top];
+            }
+
+            public boolean isEmpty() {
+                return top == -1;
+            }
+        }
+
+2. Linked List-based Stack:
+    - Definition: A stack implemented using a linked list.
+    - Characteristics: Dynamic size, efficient insertion and deletion.
+    - Example:
+        class LinkedListStack {
+            private class Node {
+                int data;
+                Node next;
+
+                Node(int data) {
+                    this.data = data;
+                }
+            }
+
+            private Node top;
+
+            public void push(int value) {
+                Node newNode = new Node(value);
+                newNode.next = top;
+                top = newNode;
+            }
+
+            public int pop() {
+                if (top == null) {
+                    throw new EmptyStackException();
+                }
+                int value = top.data;
+                top = top.next;
+                return value;
+            }
+
+            public int peek() {
+                if (top == null) {
+                    throw new EmptyStackException();
+                }
+                return top.data;
+            }
+
+            public boolean isEmpty() {
+                return top == null;
+            }
+        }
+
+
+------------------------------------- Operations of Stack -----------------------------------------------------
+
+1. Push: Adds an element to the top of the stack.
+2. Pop: Removes the top element from the stack.
+3. Peek (or Top): Returns the top element without removing it.
+4. isEmpty: Checks if the stack is empty.
+5. isFull: Checks if the stack is full (only applicable for array-based stacks).
+6. Size: Returns the number of elements in the stack.

@@ -14,9 +14,10 @@ public class Custom_stack<E> {
 		this.data = (E[]) java.lang.reflect.Array.newInstance(Object.class, size);
 	}
 
+	//O(1)
 	public boolean push(E ele) {
 		if (isFull()) {
-			System.out.println("Stack is Full :  Element is not inserted " + ele +"\n");
+			System.out.println("Stack is Full :  Element is not inserted " + ele + "\n");
 			return false;
 		}
 
@@ -25,6 +26,7 @@ public class Custom_stack<E> {
 		return true;
 	}
 
+	//O(1)
 	public final E pop() throws StackException {
 		if (isEmpty()) {
 			throw new StackException("Stack is Empty");
@@ -33,6 +35,7 @@ public class Custom_stack<E> {
 		return data[ptr--];
 	}
 	
+	// O(1)
 	public final E peek() throws StackException {
 		if (isEmpty()) {
 			throw new StackException("No element is present in the stack : Stack is empty");
@@ -41,6 +44,7 @@ public class Custom_stack<E> {
 		return data[ptr];
 	}
 	
+	// O(n)
 	public final void display() {
 		System.out.print("[");
 		for (int i = 0; i <= ptr; i++) {

@@ -1,0 +1,227 @@
+A heap is a specialized tree-based data structure that satisfies the heap property. 
+It is commonly used to implement priority queues. There are two types of heaps: Max-Heap and Min-Heap.
+
+Key characteristics of a heap:
+- A complete binary tree.
+- Follows the heap property:
+    - Max-Heap: The value of each node is greater than or equal to the values of its children.
+    - Min-Heap: The value of each node is less than or equal to the values of its children.
+
+--------------------------------------------------------------------------------------------------
+
+We can implement heaps using arrays.
+
+Here, h = height, n = size of the heap.
+- Insertion: O(log n)
+- Deletion: O(log n)
+- Find: O(1) for the root element (max or min)
+
+------------------------ Real-life applications of heaps ------------------------
+
+1. Priority Queues: Used to manage tasks with different priorities.
+2. Heap Sort: An efficient sorting algorithm.
+3. Graph Algorithms: Used in algorithms like Dijkstra's shortest path and Prim's minimum spanning tree.
+4. Scheduling: Used in operating systems for job scheduling.
+5. Median Maintenance: Used to maintain the median of a stream of numbers.
+6. Event Simulation: Used in discrete event simulation systems.
+
+-------------------------- Terminologies used in Heaps --------------------------
+
+1. Node: A fundamental part of a heap that contains data and links to its children.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 10, 5, and 3 are nodes.
+
+2. Root: The topmost node of a heap.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 10 is the root.
+
+3. Parent: A node that has a link to one or more child nodes.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 10 is the parent of 5 and 3.
+
+4. Child: A node that has a parent node.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 5 and 3 are children of 10.
+
+5. Sibling: Nodes that share the same parent.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 5 and 3 are siblings.
+
+6. Leaf: A node that does not have any children.
+        Example: 
+                 10
+                /  \
+               5    3
+        Here, 5 and 3 are leaves.
+
+7. Heap Property: The property that defines the order of elements in a heap.
+        - Max-Heap: Parent nodes are greater than or equal to their children.
+        - Min-Heap: Parent nodes are less than or equal to their children.
+
+-------------------------------------- Types of Heaps --------------------------------------
+
+1. Max-Heap:
+        - Definition: A heap where the value of each node is greater than or equal to the values of its children.
+        - Example:
+                       10
+                    /     \
+                   5       3
+                  / \     / \
+                 2   1   4   0
+
+2. Min-Heap:
+        - Definition: A heap where the value of each node is less than or equal to the values of its children.
+        - Example:
+                      0
+                    /   \
+                   1     3
+                  / \   / \
+                 2   5 4   10
+
+--------------------------------------- Operations of Heaps ---------------------------------------
+
+1. Insertion:
+    - Description: Adding a new node to the heap while maintaining the heap property.
+    - Example: 
+        Before Insertion:
+              10
+             /  \
+            5    3
+        After Insertion (insert 4):
+              10
+             /  \
+            5    3
+           /
+          4
+    - Complexity: O(log n)
+
+2. Deletion:
+    - Description: Removing the root node from the heap and restructuring to maintain the heap property.
+    - Example: 
+        Before Deletion:
+              10
+             /  \
+            5    3
+          /
+         4
+        After Deletion (delete 10):
+              5
+             / \
+            4   3
+    - Complexity: O(log n)
+
+3. Heapify:
+    - Description: Rearranging the elements to maintain the heap property.
+    - Example: 
+        Array: [3, 5, 10, 4]
+        After Heapify (Max-Heap):
+              10
+             /  \
+            5    3
+          /
+         4
+    - Complexity: O(n)
+
+4. Extract-Max/Min:
+    - Description: Removing the maximum (or minimum) element from the heap.
+    - Example: 
+        Before Extract-Max:
+              10
+             /  \
+            5    3
+           /
+          4
+        After Extract-Max:
+              5
+             / \
+            4   3
+    - Complexity: O(log n)
+
+5. Peek:
+    - Description: Returning the maximum (or minimum) element without removing it.
+    - Example: 
+        Heap:
+              10
+             /  \
+            5    3
+        Peek: 10
+    - Complexity: O(1)
+
+6. Size Calculation:
+    - Description: Calculating the total number of nodes in the heap.
+    - Example: 
+        Heap:
+              10
+             /  \
+            5    3
+          /
+         4
+        Size: 4
+    - Complexity: O(1)
+
+--------------------------------------- Priority Queue ---------------------------------------
+
+A priority queue is an abstract data type similar to a regular queue or stack data structure,
+but where each element has a priority associated with it. In a priority queue, an element with 
+high priority is served before an element with low priority.
+
+Key characteristics of a priority queue:
+- Elements are ordered by priority.
+- Supports efficient insertion and extraction of the highest (or lowest) priority element.
+
+------------------------ Real-life applications of priority queues ------------------------
+
+1. Task Scheduling: Used in operating systems to manage tasks with different priorities.
+2. Dijkstra's Algorithm: Used to find the shortest path in a graph.
+3. Huffman Coding: Used in data compression algorithms.
+4. Event Simulation: Used in discrete event simulation systems.
+5. Load Balancing: Used in network routers to manage data packets.
+
+--------------------------------------- Operations of Priority Queues ---------------------------------------
+
+1. Insertion:
+    - Description: Adding a new element to the priority queue.
+    - Example: 
+        Before Insertion:
+        Priority Queue: [(5, 'Task1'), (3, 'Task2')]
+        After Insertion (insert (4, 'Task3')):
+        Priority Queue: [(5, 'Task1'), (4, 'Task3'), (3, 'Task2')]
+    - Complexity: O(log n)
+
+2. Deletion:
+    - Description: Removing the highest (or lowest) priority element from the priority queue.
+    - Example: 
+        Before Deletion:
+        Priority Queue: [(5, 'Task1'), (4, 'Task3'), (3, 'Task2')]
+        After Deletion:
+        Priority Queue: [(4, 'Task3'), (3, 'Task2')]
+    - Complexity: O(log n)
+
+3. Peek:
+    - Description: Returning the highest (or lowest) priority element without removing it.
+    - Example: 
+        Priority Queue: [(5, 'Task1'), (4, 'Task3'), (3, 'Task2')]
+        Peek: (5, 'Task1')
+    - Complexity: O(1)
+
+4. Size Calculation:
+    - Description: Calculating the total number of elements in the priority queue.
+    - Example: 
+        Priority Queue: [(5, 'Task1'), (4, 'Task3'), (3, 'Task2')]
+        Size: 3
+    - Complexity: O(1)
