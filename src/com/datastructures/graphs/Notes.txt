@@ -1,0 +1,467 @@
+A graph is a data structure that consists of a set of nodes (or vertices) and a set of edges that connect pairs of nodes. 
+Graphs are used to represent various real-world structures such as networks, social connections, and more.
+
+Key characteristics of a graph:
+- Nodes (or vertices): The fundamental units of a graph.
+- Edges: The connections between nodes.
+- Can be directed or undirected.
+- Can have cycles or be acyclic.
+- Can have weights associated with edges.
+
+--------------------------------------------------------------------------------------------------
+
+We can implement graphs using adjacency matrices or adjacency lists.
+
+Here, V = number of vertices, E = number of edges.
+
+- Adjacency Matrix:
+    - Space Complexity: O(V^2)
+    - Add Edge: O(1)
+    - Remove Edge: O(1)
+    - Check if Edge Exists: O(1)
+
+- Adjacency List:
+    - Undirected Graph:
+        - Space Complexity: O(V + 2E)
+        - Add Edge: O(1)
+        - Remove Edge: O(E) in the worst case
+        - Check if Edge Exists: O(E) in the worst case
+    - Directed Graph:
+        - Space Complexity: O(V + E)
+        - Add Edge: O(1)
+        - Remove Edge: O(E) in the worst case
+        - Check if Edge Exists: O(E) in the worst case
+
+------------------------ Types of Graphs ------------------------
+
+1. Undirected Graph:
+    - Definition: Nodes are connected by lines without arrows.
+    - Characteristics: An edge between nodes A and B implies an edge between B and A.
+    - Example: A simple network diagram.
+    ```
+    A -- B
+    |    |
+    C -- D
+    ```
+
+2. Directed Graph:
+    - Definition: Nodes are connected by lines with arrows.
+    - Characteristics: An edge from A to B does not necessarily imply an edge from B to A.
+    - Example: A one-way street network.
+    ```
+    A -> B
+    ^    |
+    |    v
+    D <- C
+    ```
+
+------------------------ Cycles in Graphs ------------------------
+
+1. Cycle:
+    - Definition: A cycle occurs when you can start at a node and return to it by following the edges.
+    - Types:
+        - Undirected Cyclic Graph: An undirected graph with at least one cycle.
+        - Directed Acyclic Graph (DAG): A directed graph with no cycles.
+        - Directed Cyclic Graph: A directed graph with at least one cycle.
+    ```
+    Undirected Cyclic Graph:
+    A -- B
+    |    |
+    C -- D
+
+    Directed Acyclic Graph (DAG):
+    A -> B -> C
+         |
+         v
+         D
+
+    Directed Cyclic Graph:
+    A -> B -> C
+         ^    |
+         |    v
+         D <- E
+    ```
+
+------------------------ Paths in Graphs ------------------------
+
+1. Path:
+    - Definition: A path is a sequence of nodes where each consecutive pair of nodes is connected by an edge.
+    - Characteristics: A node cannot appear more than once in a path.
+    ```
+    Path Example:
+    A -> B -> C -> D
+    ```
+
+------------------------ Degrees in Graphs ------------------------
+
+1. Undirected Graph:
+    - Degree: The degree of a node is the number of edges connected to it.
+    - Sum of Degrees: The sum of the degrees of all nodes in an undirected graph is equal to twice the number of edges.
+    ```
+    A -- B
+    |    |
+    C -- D
+
+    Degrees:
+    A: 2, B: 2, C: 2, D: 2
+    Sum of Degrees: 8 (2 * number of edges)
+    ```
+
+2. Directed Graph:
+    - In-degree: The number of edges pointing towards a node.
+    - Out-degree: The number of edges pointing away from a node.
+    ```
+    A -> B
+    ^    |
+    |    v
+    D <- C
+
+    In-degrees:
+    A: 1, B: 1, C: 1, D: 1
+
+    Out-degrees:
+    A: 1, B: 1, C: 1, D: 1
+    ```
+
+------------------------ Edge Weights ------------------------
+
+1. Edge Weights:
+    - Definition: Edges can have assigned weights, which represent the cost or distance associated with traversing that edge.
+    - Characteristics: If no weights are assigned, unit weights (weight of 1) are assumed.
+    ```
+    Weighted Graph:
+    A --2-- B
+    |      |
+    3      1
+    |      |
+    C --4-- D
+    ```
+
+------------------------ Graph Representations ------------------------
+
+1. Adjacency Matrix:
+    - Definition: A 2D array where the element at row i and column j represents the presence (and possibly the weight) of an edge between nodes i and j.
+    - Characteristics: Space complexity is O(V^2), where V is the number of vertices.
+    ```
+    Adjacency Matrix for the graph:
+    A -- B
+    |    |
+    C -- D
+
+    Matrix:
+      A B C D
+    A 0 1 1 0
+    B 1 0 0 1
+    C 1 0 0 1
+    D 0 1 1 0
+    ```
+
+2. Adjacency List:
+    - Definition: An array of lists where the ith list contains all the nodes connected to the ith node.
+    - Characteristics: Space complexity is O(V + E), where V is the number of vertices and E is the number of edges.
+    ```
+    Adjacency List for the graph:
+    A -- B
+    |    |
+    C -- D
+
+    List:
+    A: B, C
+    B: A, D
+    C: A, D
+    D: B, C
+    ```
+
+------------------------ Graph Traversal Algorithms ------------------------
+
+1. Depth-First Search (DFS):
+    - Definition: A traversal algorithm that explores as far as possible along each branch before backtracking.
+    - Characteristics: Uses a stack (can be implemented using recursion).
+    ```
+    DFS Example:
+
+    Visual Representation:
+    A -- B
+    |    |
+    C -- D
+
+    DFS Traversal Order:
+    Starting from A:
+    A -> B -> D -> C
+    ```
+
+2. Breadth-First Search (BFS):
+    - Definition: A traversal algorithm that explores all the neighbors of a node before moving on to their neighbors.
+    - Characteristics: Uses a queue.
+    ```
+    BFS Example:
+
+    Visual Representation:
+    A -- B
+    |    |
+    C -- D
+
+    BFS Traversal Order:
+    Starting from A:
+    A -> B -> C -> D
+    ```
+
+------------------------ Example Implementations ------------------------
+
+1. Adjacency Matrix Representation:
+    ```java
+    class Graph {
+        private int[][] adjMatrix;
+        private int numVertices;
+
+        public Graph(int numVertices) {
+            this.numVertices = numVertices;
+            adjMatrix = new int[numVertices][numVertices];
+        }
+
+        public void addEdge(int i, int j) {
+            adjMatrix[i][j] = 1;
+            adjMatrix[j][i] = 1; // For undirected graph
+        }
+
+        public void removeEdge(int i, int j) {
+            adjMatrix[i][j] = 0;
+            adjMatrix[j][i] = 0; // For undirected graph
+        }
+
+        public boolean isEdge(int i, int j) {
+            return adjMatrix[i][j] == 1;
+        }
+    }
+    ```
+
+2. Adjacency List Representation:
+    ```java
+    import java.util.LinkedList;
+
+    class Graph {
+        private LinkedList<Integer>[] adjList;
+        private int numVertices;
+
+        public Graph(int numVertices) {
+            this.numVertices = numVertices;
+            adjList = new LinkedList[numVertices];
+            for (int i = 0; i < numVertices; i++) {
+                adjList[i] = new LinkedList<>();
+            }
+        }
+
+        public void addEdge(int i, int j) {
+            adjList[i].add(j);
+            adjList[j].add(i); // For undirected graph
+        }
+
+        public void removeEdge(int i, int j) {
+            adjList[i].remove((Integer) j);
+            adjList[j].remove((Integer) i); // For undirected graph
+        }
+
+        public boolean isEdge(int i, int j) {
+            return adjList[i].contains(j);
+        }
+    }
+    ```
+
+------------------------ Graph Operations ------------------------
+
+1. Graph Operations:
+    - Add Vertex: Add a new vertex to the graph.
+    - Remove Vertex: Remove a vertex and all its associated edges from the graph.
+    - Add Edge: Add a new edge between two vertices.
+    - Remove Edge: Remove an edge between two vertices.
+    - Check if Edge Exists: Determine if there is an edge between two vertices.
+    - Get Neighbors: Retrieve all vertices connected to a given vertex.
+    - Get Degree: Get the degree of a vertex (number of edges connected to it).
+
+2. Undirected Graph Operations:
+    - Add Edge: Add an undirected edge between two vertices.
+    - Remove Edge: Remove an undirected edge between two vertices.
+    - Check if Edge Exists: Determine if there is an undirected edge between two vertices.
+    - Get Degree: Get the degree of a vertex in an undirected graph.
+
+3. Directed Graph Operations:
+    - Add Edge: Add a directed edge from one vertex to another.
+    - Remove Edge: Remove a directed edge from one vertex to another.
+    - Check if Edge Exists: Determine if there is a directed edge from one vertex to another.
+    - Get In-Degree: Get the in-degree of a vertex (number of edges pointing to it).
+    - Get Out-Degree: Get the out-degree of a vertex (number of edges pointing away from it).
+
+
+--------------------------- Real Life Applications of Graphs ---------------------------
+
+1. Social Networks: Represent relationships between individuals.
+2. Transportation Networks: Model roads, highways, and routes.
+3. Web Page Ranking: Rank web pages based on importance.
+4. Recommendation Systems: Suggest items to users based on preferences.
+5. Network Analysis: Analyze the structure and properties of networks.
+6. Network Security: Secure networks against unauthorized access and attacks.
+7. Network Routing: Route data packets through a network.
+8. Network Monitoring: Monitor network traffic and detect anomalies.
+9. Network Optimization: Optimize network performance and efficiency.
+10. Network Design: Design and plan networks for various applications.
+11. Network Simulation: Simulate network behavior and performance.
+12. Network Testing: Test network functionality and performance.
+13. Network Visualization: Visualize network topology and structure.
+14. Network Modeling: Model network behavior and simulate performance.
+
+
+
+--------------------------------------- Algorithms of Graphs -----------------------------------------
+
+1. Breadth-First Search (BFS):
+    - Definition: Traverses all the vertices of a graph in breadth-first order.
+    - Characteristics: Uses a queue to keep track of the vertices to be visited.
+    - Pseudocode:
+        ```
+        BFS(graph, start):
+            create an empty queue Q
+            create an empty set S
+            enqueue start onto Q
+            while Q is not empty:
+                dequeue a vertex from Q
+                if vertex is not in S:
+                    S.add(vertex)
+                    for each neighbor of vertex:
+                        enqueue neighbor onto Q
+        ```
+
+2. Depth-First Search (DFS):
+    - Definition: Traverses all the vertices of a graph in depth-first order.    
+    - Characteristics: Uses a stack to keep track of the vertices to be visited.
+    - Pseudocode:
+        ```
+        DFS(graph, start):
+            create an empty stack S
+            push start onto S
+            while S is not empty:
+                vertex = S.pop()
+                if vertex is not visited:
+                    vertex.visited = true
+                    for each neighbor of vertex:
+                        push neighbor onto S
+        ```
+
+3. Dijkstra's Algorithm:
+    - Definition: Finds the shortest path between a source vertex and all other vertices in a weighted graph.
+    - Characteristics: Uses a priority queue to keep track of the vertices to be visited.
+    - Pseudocode:
+        ```
+        Dijkstra(graph, start):
+            create a priority queue Q
+            create a set S
+            enqueue (start, 0) onto Q
+            while Q is not empty:
+                (vertex, distance) = dequeue from Q
+                if vertex is not in S:
+                    S.add(vertex)
+                    for each neighbor of vertex:
+                        if distance to neighbor is less than current distance:
+                            distance to neighbor = distance to vertex + weight of edge
+                            enqueue (neighbor, distance) onto Q
+        ```
+
+4. Bellman-Ford Algorithm:
+    - Definition: Finds the shortest path between a source vertex and all other vertices in a weighted graph.
+    - Characteristics: Uses an array to keep track of the distances from the source vertex to all other vertices.
+    - Pseudocode:
+        ```
+        BellmanFord(graph, start):
+            create an array dist[]
+            for each vertex in graph:
+                dist[vertex] = infinity
+            dist[start] = 0
+            for i from 1 to infinity:
+                for each vertex in graph:
+                    for each neighbor of vertex:
+                        if dist[neighbor] > dist[vertex] + weight of edge:
+                            dist[neighbor] = dist[vertex] + weight of edge
+        ```
+
+5. Floyd-Warshall Algorithm:
+    - Definition: Finds the shortest path between all pairs of vertices in a weighted graph.
+    - Characteristics: Uses a 2D array to keep track of the distances between all pairs of vertices.
+    - Pseudocode:
+        ```
+        FloydWarshall(graph):
+            create a 2D array dist[][]
+            for each vertex in graph:
+                for each vertex in graph:
+                    dist[vertex][vertex] = 0
+            for each vertex in graph:
+                dist[vertex][vertex] = infinity
+            for each vertex in graph:
+                for k from 0 to infinity:
+                    for i from 0 to infinity:
+                        for j from 0 to infinity:
+                            if dist[i][k] + dist[k][j] < dist[i][j]:
+                                dist[i][j] = dist[i][k] + dist[k][j]
+        ```
+
+6. Topological Sort:
+    - Definition: Sorts the vertices of a directed acyclic graph (DAG) in topological order.
+    - Characteristics: Uses a stack to keep track of the vertices to be visited.
+    - Pseudocode:
+        ```
+        TopologicalSort(graph):
+            create an empty stack S
+            for each vertex in graph:
+                if vertex has no incoming edges:
+                    S.push(vertex)
+            while S is not empty:
+                vertex = S.pop()
+                for each neighbor of vertex:
+                    if neighbor has no incoming edges:
+                        S.push(neighbor)
+        ```
+
+7. Minimum Spanning Tree (MST):
+    - Definition: Finds the minimum cost spanning tree of a weighted graph.
+    - Characteristics: Uses a priority queue to keep track of the edges to be included in the tree.
+    - Pseudocode:
+        ```
+        MST(graph):
+            create a priority queue Q
+            for each vertex in graph:
+                Q.add(vertex, weight of vertex)
+            while Q is not empty:
+                (vertex, weight) = Q.remove()
+                for each neighbor of vertex:
+                    if weight of edge is less than weight of current edge:
+                        Q.add(neighbor, weight of edge)
+        ```
+
+8. Kruskal's Algorithm:
+    - Definition: Finds the minimum cost spanning tree of a weighted graph.
+    - Characteristics: Uses a disjoint set data structure to keep track of the edges to be included in the tree.
+    - Pseudocode:
+        ```
+        Kruskal(graph):
+            create a disjoint set data structure
+            for each vertex in graph:
+                make it a singleton
+            for each edge in graph:
+                union the vertices of the edge
+            return the minimum cost spanning tree
+        ```
+
+9. Prim's Algorithm:
+    - Definition: Finds the minimum cost spanning tree of a weighted graph.
+    - Characteristics: Uses a priority queue to keep track of the edges to be included in the tree.
+    - Pseudocode:
+        ```
+        Prim(graph):
+            create a priority queue Q
+            for each vertex in graph:
+                Q.add(vertex, weight of vertex)
+            while Q is not empty:
+                (vertex, weight) = Q.remove()
+                for each neighbor of vertex:
+                    if weight of edge is less than weight of current edge:
+                        Q.add(neighbor, weight of edge)
+        ```
+

@@ -90,6 +90,7 @@ public class Max_Heap implements Heap {
 	/**
 	 * Helper function to adjust the max-heap after insertion.
 	 * 
+	 * 
 	 * @param currentIndex the index of the newly inserted element
 	 * 
 	 * this method check on each node to maintain the max-heap property from Down to Up.

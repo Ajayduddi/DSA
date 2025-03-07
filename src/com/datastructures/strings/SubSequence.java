@@ -3,6 +3,30 @@ package com.datastructures.strings;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+ * Subset (of a set)
+ * A subset of a set contains any selection of elements from the original set, without considering order or adjacency.
+ * If S = {a, b, c}, then {a, c} is a valid subset.
+ *
+ * Example of a Factor (Substring): 
+ * Consider the string: S = "abcdef"
+ * - "abc" is a factor (substring) of S because the characters appear consecutively. 
+ * - "cde" is also a factor because the characters appear together in S. 
+ * - "ace" is not a factor because the characters are not consecutive in S.
+ * 
+ * Contrast with a Subsequence: A subsequence is a more general concept where
+ * characters can appear in the same order but do not have to be consecutive.
+ * 
+ * For the same string S = "abcdef":
+ * 
+ * "ace" is a subsequence because a, c, and e appear in the same order, but not consecutively. 
+ * "cfa" is not a subsequence because the order does not match.
+ * 
+ * Key Difference: A factor (substring) must be contiguous. A subsequence only
+ * needs to maintain the relative order, but the characters do not have to be
+ * consecutive.
+ */
 public class SubSequence {
     
     public static void main(String[] args) {
@@ -45,3 +69,13 @@ public class SubSequence {
         return arr;
     }
 }   
+
+
+/*
+ * 
+ * Concept      Order Matters?    Consecutive Required?     Example ("abcdef")  
+ * Subset           No                  No                   {a, c, f} (as a set) 
+ * Substring        Yes                 Yes                      "bcd" 
+ * Subsequence      Yes                 No                       "ace"
+ * 
+ */
