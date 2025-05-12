@@ -1,0 +1,38 @@
+------Lexicographical Order (Dictionary Order)----------
+
+Lexicographical order is the way words are arranged in a dictionary. It follows the rules of alphabetical order, 
+comparing characters from left to right.
+
+------------ How It Works  ---------------------------
+1. Compare the first letter of both words.
+2. If the first letters are the same, move to the next letter and compare.
+3. Continue this until a difference is found or one word is completely checked.
+4. Shorter words come first if they match up to the length of the shorter word.
+
+------------------- Examples---------------------
+Example 1: Simple Words
+    Compare "apple" and "banana":
+
+    "a" comes before "b" in the alphabet.
+    So, "apple" comes before "banana".
+
+Example 2: Words with Common Prefix
+    Compare "cat" and "car":
+
+    First letters: "c" = "c" (same)
+    Second letters: "a" = "a" (same)
+    Third letters: "t" vs. "r" → "r" comes before "t" in the alphabet.
+    So, "car" comes before "cat".
+
+Example 3: One Word is a Prefix of Another
+    Compare "bat" and "battery":
+
+    "bat" appears entirely at the start of "battery".
+    The shorter word "bat" comes first in lexicographical order.
+
+Example 4: Numbers and Special Characters
+    Lexicographical order follows ASCII values, meaning:
+
+    Numbers (0-9) come before letters (A-Z, a-z).
+    Uppercase letters (A-Z) come before lowercase letters (a-z).
+    "123" comes before "apple", and "Hello" comes before "hello".

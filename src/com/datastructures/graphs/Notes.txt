@@ -54,7 +54,32 @@ Here, V = number of vertices, E = number of edges.
     |    v
     D <- C
     ```
+    ------------------------ Bipartite Graph ------------------------
 
+    Definition:
+    - A bipartite graph is a graph whose vertices can be divided into two disjoint sets (U and V) such that every edge connects a vertex in U to one in V. No edge exists between vertices within the same set.
+
+    Characteristics:
+    - The graph is 2-colorable (each set can be assigned a unique color).
+    - It contains no odd-length cycles.
+    - Commonly used in matching problems like job assignments and network flows.
+
+    Example:
+    Visual Representation:
+        U       V
+        ●       ●
+        |       |
+        ●-------●
+
+    Algorithm to Check Bipartiteness (using BFS):
+    1. For each uncolored vertex, assign a color (say, color1).
+    2. Enqueue the vertex.
+    3. While the queue is not empty:
+        - Dequeue a vertex and for each of its neighbors:
+          - If the neighbor is uncolored, assign the opposite color and enqueue it.
+          - If the neighbor has the same color, the graph is not bipartite.
+    4. If all vertices are colored without conflict, the graph is bipartite.
+    
 ------------------------ Cycles in Graphs ------------------------
 
 1. Cycle:
